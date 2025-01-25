@@ -1,0 +1,345 @@
+ -- Escolhendo banco de dados e-commerce --
+ use ecommerce;
+ 
+ -- Começar a inserir informações:
+
+ -- Inserir clientes
+INSERT INTO clients (idClient, Fname, Minit, Lname, CPF, client_address) 
+VALUES 
+(1, 'João', 'A', 'Silva', '89812348678', 'Rua A, 123'),
+(2, 'Maria', 'B', 'Oliveira', '90163456789', 'Rua B, 456'),
+(3, 'Carlos', 'C', 'Santos', '44556677889', 'Rua C, 789'),
+(4, 'Ana', 'M', 'Costa', '23456789012', 'Rua D, 101'),
+(5, 'Pedro', 'L', 'Lima', '01234567879', 'Rua E, 202'),
+(6, 'Clara', 'J', 'Pereira', '11223347556', 'Rua F, 303'),
+(7, 'Lucas', 'R', 'Souza', '34567890423', 'Rua G, 404');
+
+-- Inserir produtos
+INSERT INTO product (idProduct, Pname, category, classification_kids, price, rating, size) 
+VALUES 
+(1, 'Celular', 'Eletrônico', false, 1200.50, '4', '15x10x2'),
+(2, 'Camiseta', 'Vestimenta', true, 59.99, '5', 'M'),
+(3, 'Carrinho', 'Brinquedos', true, 199.99, '4', '30x20x15'),
+(4, 'Notebook', 'Eletrônico', false, 3500.00, '5', '35x25x2'),
+(5, 'Smartwatch', 'Eletrônico', false, 799.99, '4', '10x5x1'),
+(6, 'Calça', 'Vestimenta', false, 89.90, '5', 'G'),
+(7, 'Mochila', 'Vestimenta', true, 159.99, '4', '40x30x20'),
+(8, 'Boneca', 'Brinquedos', true, 49.99, '5', '20x10x5'),
+(9, 'Chocolate', 'Alimentos', true, 5.99, '5', '10x5x1'),
+(10, 'Sofá', 'Móveis', false, 1999.00, '4', '200x90x80'),
+(11, 'Mesa', 'Móveis', false, 899.99, '5', '150x75x75'),
+(12, 'Livro', 'Brinquedos', true, 29.90, '5', '25x18x2'),
+(13, 'Tênis', 'Vestimenta', false, 299.90, '5', '42'),
+(14, 'Geladeira', 'Eletrônico', false, 2999.99, '5', '180x70x70'),
+(15, 'Fone', 'Eletrônico', false, 199.99, '4', '10x10x5'),
+(16, 'Vestido', 'Vestimenta', true, 149.90, '5', 'M'),
+(17, 'Camiseta', 'Vestimenta', false, 59.90, '4', 'G'),
+(18, 'Carrinho', 'Brinquedos', true, 89.99, '5', '50x30x20'),
+(19, 'Lego', 'Brinquedos', true, 299.99, '5', '20x15x10'),
+(20, 'Biscoito', 'Alimentos', true, 7.99, '4', '15x10x5'),
+(21, 'Pão', 'Alimentos', true, 3.50, '5', '10x10x3'),
+(22, 'Cadeira', 'Móveis', false, 399.90, '5', '120x50x50'),
+(23, 'Estante', 'Móveis', false, 799.90, '5', '200x100x40'),
+(24, 'Tablet', 'Eletrônico', false, 1200.00, '5', '25x18x1'),
+(25, 'Celular', 'Eletrônico', false, 2500.00, '5', '15x8x1'),
+(26, 'Jaqueta', 'Vestimenta', false, 199.90, '4', 'P'),
+(27, 'Calção', 'Vestimenta', true, 49.90, '5', 'M'),
+(28, 'Pelúcia', 'Brinquedos', true, 39.99, '5', '20x20x20'),
+(29, 'Queijo', 'Alimentos', true, 19.99, '4', '15x10x5'),
+(30, 'Mesinha', 'Móveis', false, 1299.90, '5', '150x75x50'),
+(31, 'Roteador', 'Eletrônico', false, 349.99, '4', '20x15x5'),
+(32, 'Shorts', 'Vestimenta', false, 79.90, '4', 'M'),
+(33, 'Puzzle', 'Brinquedos', true, 59.99, '5', '30x30x5');
+-- Inserir pagamentos
+INSERT INTO payments (idClientPayment, id_payment, payment_type, payment_price, payment_status) 
+VALUES 
+(1, 1, 'Cartão', 1200.50, 'Pago'),
+(2, 2, 'Boleto', 59.99, 'Pago'),
+(3, 3, 'Cartão', 199.99, 'Processando'),
+(4, 4, 'Cartão', 150.00, 'Pago'),
+(5, 5, 'Boleto', 350.00, 'Pago'),
+(6, 6, 'Cartão', 89.90, 'Recusado'),
+(7, 7, 'Dois Cartões', 1999.00, 'Processando'),
+(8, 8, 'Boleto', 49.99, 'Pago'),
+(9, 9, 'Cartão', 5.99, 'Pago'),
+(10, 10, 'Cartão', 159.99, 'Processando'),
+(11, 11, 'Cartão', 120.50, 'Pago'),
+(12, 12, 'Boleto', 400.00, 'Pago'),
+(13, 13, 'Cartão', 250.75, 'Processando'),
+(14, 14, 'Dois Cartões', 899.99, 'Pago'),
+(15, 15, 'Cartão', 75.90, 'Pago'),
+(16, 16, 'Boleto', 50.00, 'Recusado'),
+(17, 17, 'Cartão', 300.00, 'Processando'),
+(18, 18, 'Dois Cartões', 1200.00, 'Pago'),
+(19, 19, 'Cartão', 199.99, 'Pago'),
+(20, 20, 'Boleto', 80.00, 'Pago'),
+(21, 21, 'Cartão', 599.99, 'Recusado'),
+(22, 22, 'Dois Cartões', 1500.00, 'Pago'),
+(23, 23, 'Boleto', 450.00, 'Pago'),
+(24, 24, 'Cartão', 100.00, 'Processando'),
+(25, 25, 'Boleto', 30.00, 'Pago'),
+(26, 26, 'Cartão', 250.00, 'Pago'),
+(27, 27, 'Dois Cartões', 2000.00, 'Pago'),
+(28, 28, 'Cartão', 349.90, 'Processando'),
+(29, 29, 'Boleto', 500.00, 'Pago'),
+(30, 30, 'Cartão', 99.99, 'Recusado'),
+(31, 31, 'Cartão', 20.00, 'Processando'),
+(32, 32, 'Boleto', 10.00, 'Pago'),
+(33, 33, 'Cartão', 5.00, 'Recusado'),
+(34, 34, 'Dois Cartões', 15.00, 'Pago'),
+(35, 35, 'Cartão', 10.00, 'Processando'),
+(36, 36, 'Boleto', 8.00, 'Recusado'),
+(37, 37, 'Cartão', 12.00, 'Processando'),
+(38, 38, 'Dois Cartões', 20.00, 'Pago'),
+(39, 39, 'Cartão', 18.00, 'Processando'),
+(40, 40, 'Boleto', 5.00, 'Recusado'),
+(41, 41, 'Cartão', 25.00, 'Processando'),
+(42, 42, 'Cartão', 15.00, 'Pago'),
+(43, 43, 'Boleto', 10.00, 'Processando'),
+(44, 44, 'Dois Cartões', 10.00, 'Pago'),
+(45, 45, 'Cartão', 18.00, 'Processando'),
+(46, 46, 'Boleto', 12.00, 'Pago'),
+(47, 47, 'Cartão', 6.00, 'Recusado'),
+(48, 48, 'Dois Cartões', 15.00, 'Processando'),
+(49, 49, 'Boleto', 12.00, 'Pago'),
+(50, 50, 'Cartão', 8.00, 'Processando'),
+(51, 51, 'Boleto', 5.00, 'Recusado'),
+(52, 52, 'Cartão', 15.00, 'Pago'),
+(53, 53, 'Cartão', 10.00, 'Processando'),
+(54, 54, 'Dois Cartões', 8.00, 'Recusado'),
+(55, 55, 'Cartão', 12.00, 'Pago'),
+(56, 56, 'Boleto', 10.00, 'Processando'),
+(57, 57, 'Cartão', 10.00, 'Recusado'),
+(58, 58, 'Boleto', 18.00, 'Pago'),
+(59, 59, 'Cartão', 22.00, 'Processando'),
+(60, 60, 'Boleto', 7.00, 'Recusado'),
+(61, 61, 'Cartão', 14.00, 'Pago');
+
+-- Inserir pedidos
+INSERT INTO orders (idOrder, idOrderClient, idOrderPayment, orderStatus, orderDescription, shipping, paymentCash) 
+VALUES 
+(1, 3, 1, 'Confirmado', 'Compra de celular', 15.00, false),
+(2, 5, 2, 'Confirmado', 'Compra de camiseta', 10.00, true),
+(3, 2, 3, 'Em processamento', 'Compra de carrinho', 20.00, false),
+(4, 4, 4, 'Em processamento', 'Pedido de sofá e mesa', 20.00, true),
+(5, 6, 5, 'Confirmado', 'Pedido de camiseta e biscoito', 10.00, false),
+(6, 2, 6, 'Cancelado', 'Pedido de pão e queijo', 5.00, false),
+(7, 3, 7, 'Em processamento', 'Pedido de geladeira e tablet', 30.00, true),
+(8, 5, 8, 'Confirmado', 'Pedido de celular e jaqueta', 20.00, false),
+(9, 6, 9, 'Em processamento', 'Pedido de calção e pelúcia', 15.00, true),
+(10, 4, 10, 'Cancelado', 'Pedido de escrivaninha e cadeira', 25.00, false),
+(11, 1, 11, 'Confirmado', 'Pedido de fone e router', 12.00, true),
+(12, 7, 12, 'Em processamento', 'Pedido de shorts e puzzle', 10.00, false),
+(13, 1, 13, 'Confirmado', 'Pedido de lego e carrinho', 10.00, true),
+(14, 3, 14, 'Em processamento', 'Pedido de calça e mesa', 20.00, false),
+(15, 6, 15, 'Confirmado', 'Pedido de livro e tênis', 12.00, true),
+(16, 4, 16, 'Cancelado', 'Pedido de chocolate e lego', 5.00, false),
+(17, 5, 17, 'Em processamento', 'Pedido de biscoito e cadeira', 15.00, true),
+(18, 1, 18, 'Confirmado', 'Pedido de mochila e sofá', 10.00, false),
+(19, 2, 19, 'Em processamento', 'Pedido de brinquedos e pão', 10.00, true),
+(20, 3, 20, 'Cancelado', 'Pedido de comida e pelúcia', 5.00, false),
+(21, 7, 21, 'Em processamento', 'Pedido de notebook e acessórios', 18.00, true),
+(22, 4, 22, 'Confirmado', 'Pedido de tênis e camiseta', 12.00, false),
+(23, 5, 23, 'Em processamento', 'Pedido de brinquedo e cadeira', 8.00, true),
+(24, 6, 24, 'Em processamento', 'Pedido de geladeira e fone', 20.00, false),
+(25, 3, 25, 'Confirmado', 'Pedido de calça e brinquedo', 10.00, true),
+(26, 2, 26, 'Cancelado', 'Pedido de chocolate e brinquedo', 5.00, false),
+(27, 5, 27, 'Em processamento', 'Pedido de mesa e cadeira', 15.00, true),
+(28, 7, 28, 'Confirmado', 'Pedido de camiseta e biscoito', 10.00, false),
+(29, 4, 29, 'Cancelado', 'Pedido de pão e queijo', 8.00, false),
+(30, 3, 30, 'Em processamento', 'Pedido de tablet e fone', 12.00, true),
+(31, 6, 31, 'Confirmado', 'Pedido de sofá e mesa', 20.00, false),
+(32, 7, 32, 'Em processamento', 'Pedido de celular e jaqueta', 18.00, true),
+(33, 2, 33, 'Cancelado', 'Pedido de calção e pelúcia', 5.00, false),
+(34, 1, 34, 'Em processamento', 'Pedido de escrivaninha e cadeira', 25.00, true),
+(35, 6, 35, 'Confirmado', 'Pedido de fone e router', 15.00, false),
+(36, 5, 36, 'Em processamento', 'Pedido de shorts e puzzle', 10.00, true),
+(37, 1, 37, 'Confirmado', 'Pedido de lego e carrinho', 10.00, false),
+(38, 4, 38, 'Em processamento', 'Pedido de calça e mesa', 18.00, true),
+(39, 2, 39, 'Confirmado', 'Pedido de livro e tênis', 12.00, false),
+(40, 3, 40, 'Cancelado', 'Pedido de chocolate e lego', 6.00, false),
+(41, 1, 41, 'Em processamento', 'Pedido de biscoito e cadeira', 15.00, true),
+(42, 7, 42, 'Confirmado', 'Pedido de mochila e sofá', 12.00, false),
+(43, 2, 43, 'Em processamento', 'Pedido de brinquedos e pão', 8.00, true),
+(44, 5, 44, 'Cancelado', 'Pedido de comida e pelúcia', 5.00, false),
+(45, 3, 45, 'Em processamento', 'Pedido de notebook e acessórios', 15.00, true),
+(46, 4, 46, 'Confirmado', 'Pedido de tênis e camiseta', 10.00, false),
+(47, 2, 47, 'Em processamento', 'Pedido de brinquedo e cadeira', 8.00, true),
+(48, 6, 48, 'Confirmado', 'Pedido de cadeira e brinquedo', 12.00, false),
+(49, 7, 49, 'Em processamento', 'Pedido de brinquedo e sofá', 10.00, true),
+(50, 5, 50, 'Cancelado', 'Pedido de chocolate e camiseta', 10.00, false),
+(51, 1, 51, 'Em processamento', 'Pedido de mesa e cadeira', 18.00, true),
+(52, 4, 52, 'Confirmado', 'Pedido de geladeira e fone', 12.00, false);
+
+-- Inserir estoque
+INSERT INTO productStorage (idProdStorage, storagelocation, Quantity) 
+VALUES 
+(1, 'Depósito A', 50),
+(2, 'Depósito B', 100),
+(3, 'Depósito C', 30);
+
+-- Inserir fornecedores
+INSERT INTO Supplier (idSupplier, SocialName, CNPJ, contact) 
+VALUES 
+(1, 'Fornecedor A', '12345678000199', '11987654321'),
+(2, 'Fornecedor B', '23456789000288', '21987654321'),
+(3, 'Fornecedor C', '34567890000377', '31987654321');
+
+-- Inserir fornecedores de produtos
+INSERT INTO ProductSupplier (idPsSupplier, idPsProduct, quantity) 
+VALUES 
+(1, 1, 30),
+(2, 2, 50),
+(3, 3, 20);
+
+-- Inserir vendedores
+INSERT INTO Seller (idSeller, SocialName, Address, SellerCNPJ, SellerCPF, contact) 
+VALUES 
+(1, 'Vendedor A', 'Rua D, 101', '12345678000177', NULL, '11999999999'),
+(2, 'Vendedor B', 'Rua E, 202', NULL, '987654321', '21999999999'),
+(3, 'Vendedor C', 'Rua F, 303', '34567890000266', NULL, '31999999999');
+
+-- Inserir produtos vendidos por vendedores
+INSERT INTO productSeller (idProductSeller, idProductSold, productQuantity) 
+VALUES 
+(1, 1, 10),
+(2, 2, 20),
+(3, 3, 15);
+
+delete from productOrder; 
+
+-- Inserir produtos nos pedidos
+INSERT INTO productOrder (idPOproduct, idPOorder, poQuantity, poStatus) 
+VALUES 
+(1, 1, 2, 'Disponível'),
+(2, 1, 1, 'Indisponível'),
+(3, 2, 5, 'Disponível'),
+(4, 3, 3, 'Indisponível'),
+(5, 4, 2, 'Disponível'),
+(6, 5, 1, 'Indisponível'),
+(7, 6, 4, 'Disponível'),
+(8, 7, 1, 'Indisponível'),
+(9, 8, 3, 'Disponível'),
+(10, 9, 2, 'Indisponível'),
+(11, 10, 1, 'Disponível'),
+(12, 11, 4, 'Indisponível'),
+(13, 12, 1, 'Disponível'),
+(14, 13, 3, 'Indisponível'),
+(15, 14, 2, 'Disponível'),
+(16, 15, 5, 'Indisponível'),
+(17, 16, 3, 'Disponível'),
+(18, 17, 2, 'Indisponível'),
+(19, 18, 1, 'Disponível'),
+(20, 19, 4, 'Indisponível'),
+(21, 20, 2, 'Disponível'),
+(22, 21, 3, 'Indisponível'),
+(23, 22, 5, 'Disponível'),
+(24, 23, 2, 'Indisponível'),
+(25, 24, 4, 'Disponível'),
+(25, 25, 1, 'Indisponível'),
+(1, 26, 2, 'Disponível'),
+(2, 27, 3, 'Indisponível'),
+(3, 28, 4, 'Disponível'),
+(4, 29, 1, 'Indisponível'),
+(5, 30, 5, 'Disponível'),
+(6, 31, 2, 'Indisponível'),
+(7, 32, 4, 'Disponível'),
+(8, 33, 3, 'Indisponível'),
+(9, 34, 1, 'Disponível'),
+(10, 35, 2, 'Indisponível'),
+(11, 36, 4, 'Disponível'),
+(12, 37, 5, 'Indisponível'),
+(13, 38, 3, 'Disponível'),
+(14, 39, 2, 'Indisponível'),
+(15, 40, 1, 'Disponível'),
+(16, 41, 5, 'Indisponível'),
+(17, 42, 3, 'Disponível'),
+(18, 43, 2, 'Indisponível'),
+(19, 44, 4, 'Disponível'),
+(20, 45, 1, 'Indisponível'),
+(21, 46, 3, 'Disponível'),
+(22, 47, 2, 'Indisponível'),
+(23, 48, 4, 'Disponível'),
+(24, 49, 1, 'Indisponível');
+
+-- Inserir localizações de armazenamento
+INSERT INTO storageLocation (idLproduct, idLstorage, location) 
+VALUES 
+(1, 1, 'Salvador'),
+(2, 2, 'Serrinha'),
+(3, 3, 'Vitória da Conquista');
+
+-- Mostra quais clientes realizaram quais pedidos
+
+select * from clients c, orders o
+	where c.idClient = idOrderClient
+    group by idOrder;
+    ;
+
+-- Mostra todos os produtos e seus detalhes 
+
+select * from product;
+
+-- recuperação de pedido com produto associado
+select * from clients c
+	inner join orders o on c.idClient = o.idOrderClient
+    inner join productOrder p on p.idPOorder = o.idOrder
+    inner join product on p.idPOorder = idProduct
+    ;
+
+-- Recuperar quantos pedidos foram realizados pelos clientes que fizeram pedidos
+
+select idClient, Fname, count(*) as Number_of_Orders from clients
+	LEFT JOIN orders ON idClient = idOrderClient
+    inner join product on idProduct = idOrder
+    group by idClient;
+    
+-- Recuperar todas as informações da tabela orders
+
+SELECT * FROM orders;
+
+-- Recuperar apenas os nomes e preços dos produtos da tabela product
+
+SELECT pName, price from product;
+
+-- Recuperar todas as ordens confirmadas
+
+SELECT * from orders where orderStatus = 'Confirmado';
+
+-- Recuperar eletrônicos com preço maior do que 1000
+
+SELECT pName, price from product WHERE category = 'Eletrônico' AND price > 1000;
+
+-- Calcular o valor total do pedido, somando o preço de cada produto;
+
+SELECT idOrder, ROUND(SUM(price), 2) AS totalValue
+FROM orders
+JOIN product ON orders.idOrder = product.idProduct
+GROUP BY idOrder;
+
+-- Mostra preço com desconto de 10%
+
+SELECT pname, price, ROUND(price * 0.90,2 ) AS 'Preço com Desconto'
+FROM product;
+
+-- Teste para verificar o funcionamento da soma de cada produto
+SELECT * from orders where idOrder = 33;
+select * from product where pName = 'pelúcia';
+
+-- Mostra ordens por frete, do mais caro ao mais barato;
+
+SELECT * FROM orders ORDER BY shipping DESC;
+
+-- ordena produtos pela categoria e por preço, do mais caro ao mais barato de cada categoria
+
+SELECT pName, category, price FROM product
+ORDER BY category, price DESC;
+
+-- Recupera clientes com id e nome que fizeram mais de 3 compras, com filtro de agregação
+
+SELECT idOrderClient, fName, COUNT(*) AS orderCount
+FROM orders
+join clients on clients.idClient = orders.idOrderClient
+GROUP BY idOrderClient
+HAVING COUNT(*) > 3
+ORDER BY orderCount DESC;
