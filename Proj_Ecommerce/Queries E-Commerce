@@ -1,0 +1,76 @@
+-- Queries para o BD de E-commerce
+
+-- Mostra quais clientes realizaram quais pedidos
+
+select * from clients c, orders o
+	where c.idClient = idOrderClient
+    group by idOrder;
+    ;
+
+-- Mostra todos os produtos e seus detalhes 
+
+select * from product;
+
+-- recuperação de pedido com produto associado
+select * from clients c
+	inner join orders o on c.idClient = o.idOrderClient
+    inner join productOrder p on p.idPOorder = o.idOrder
+    inner join product on p.idPOorder = idProduct
+    ;
+
+-- Recuperar quantos pedidos foram realizados pelos clientes que fizeram pedidos
+
+select idClient, Fname, count(*) as Number_of_Orders from clients
+	LEFT JOIN orders ON idClient = idOrderClient
+    inner join product on idProduct = idOrder
+    group by idClient;
+    
+-- Recuperar todas as informações da tabela orders
+
+SELECT * FROM orders;
+
+-- Recuperar apenas os nomes e preços dos produtos da tabela product
+
+SELECT pName, price from product;
+
+-- Recuperar todas as ordens confirmadas
+
+SELECT * from orders where orderStatus = 'Confirmado';
+
+-- Recuperar eletrônicos com preço maior do que 1000
+
+SELECT pName, price from product WHERE category = 'Eletrônico' AND price > 1000;
+
+-- Calcular o valor total do pedido, somando o preço de cada produto;
+
+SELECT idOrder, ROUND(SUM(price), 2) AS totalValue
+FROM orders
+JOIN product ON orders.idOrder = product.idProduct
+GROUP BY idOrder;
+
+-- Mostra preço com desconto de 10%
+
+SELECT pname, price, ROUND(price * 0.90,2 ) AS 'Preço com Desconto'
+FROM product;
+
+-- Teste para verificar o funcionamento da soma de cada produto
+SELECT * from orders where idOrder = 33;
+select * from product where pName = 'pelúcia';
+
+-- Mostra ordens por frete, do mais caro ao mais barato;
+
+SELECT * FROM orders ORDER BY shipping DESC;
+
+-- ordena produtos pela categoria e por preço, do mais caro ao mais barato de cada categoria
+
+SELECT pName, category, price FROM product
+ORDER BY category, price DESC;
+
+-- Recupera clientes com id e nome que fizeram mais de 3 compras, com filtro de agregação
+
+SELECT idOrderClient, fName, COUNT(*) AS orderCount
+FROM orders
+join clients on clients.idClient = orders.idOrderClient
+GROUP BY idOrderClient
+HAVING COUNT(*) > 3
+ORDER BY orderCount DESC;
